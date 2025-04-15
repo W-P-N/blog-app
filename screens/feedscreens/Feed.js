@@ -1,10 +1,9 @@
 import BlogCard from "../../components/BlogCard";
-import { FlatList, Pressable } from "react-native";
-import blogData from "../../data/blogData";
+import { FlatList, Pressable, Button } from "react-native";
+import {blogData} from "../../data/blogData";
 
 function Feed() {
     const blogElemet = blogData;
-
     const renderCard = (post) => {
         return (
             <Pressable onPress={() => console.log("Post Pressed")}>

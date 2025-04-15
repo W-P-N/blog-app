@@ -1,4 +1,4 @@
-const blogData = [
+export const blogData = [
     {
       id: "14e9e51e-d1d0-473c-acbe-9639eac6e991",
       title: "Conflict",
@@ -36,7 +36,7 @@ const blogData = [
       comments: 123,
       isBookmarked: false,
       publishDate: "02/28/2024",
-      imageUrl: "https://picsum.photos1/picsum/200/200",
+      imageUrl: "https://picsum.photos/picsum/200/300",
     },
     {
       id: "a3a7310a-26f5-4e61-9334-df1579cf7c1a",
@@ -49,7 +49,7 @@ const blogData = [
       comments: 123,
       isBookmarked: true,
       publishDate: "04/05/2024",
-      imageUrl: "https://picsum.photos/picsum/200/30",
+      imageUrl: "https://picsum.photos/picsum/200/308",
     },
     {
       id: "ddf0e0a4-b2f0-49cf-9832-6c40292fbc9d",
@@ -65,6 +65,5 @@ const blogData = [
       imageUrl: "https://picsum.photos/picsum/200/300",
     },
   ];
-  
-  export default blogData;
+
   
