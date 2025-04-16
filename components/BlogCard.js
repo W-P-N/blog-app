@@ -10,6 +10,7 @@ function BlogCard({imageUrl, title, author, likes, comments}) {
                         uri: "https://picsum.photos/200/300"
                     }}
                     style={styles.imageStyle}
+                    resizeMode="cover"
                 />
             </View>
             <View style={styles.bottomContainer}>
@@ -48,13 +49,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         shadowColor: 'black',
         shadowRadius: 4,
-        shadowOffset: {height: 0.2, width: 0.4}
+        shadowOffset: {height: 0.2, width: 0.4},
+        height: 300,
+        
     },
     imageContainer: {
         flex: 1
     },
     imageStyle: {
-        height: 200,
+        height: 300,
         width: '100%'
     },
     bottomContainer: {
@@ -66,7 +69,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     title: {
-        fontSize: 32
+        fontSize: 30
     },
     likeCommentContainer: {
         flexDirection: 'row',

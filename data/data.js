@@ -5,7 +5,7 @@ export const blogData = [
       author: "Glennie",
       content:
         "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.\n\nMaecenas leo odio, condimentum id luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
-      tags: "Food - Pasta",
+      tags: ["Food", "Pasta"],
       likes: 350,
       comments: 123,
       isBookmarked: false,
@@ -19,7 +19,7 @@ export const blogData = [
       author: "Serena",
       content:
         "Start your day with intention and calm. Practice mindful breathing and write down one goal.\n\nThe morning sets the tone for your whole day. Make it count.\n\nDrink water, stretch your body, and be present.",
-      tags: "Lifestyle - Wellness",
+      tags: ["Lifestyle", "Wellness"],
       likes: 482,
       comments: 123,
       isBookmarked: true,
@@ -33,7 +33,7 @@ export const blogData = [
       author: "Ethan",
       content:
         "1. Use `const` and `let` instead of `var`.\n2. Master array methods like `.map()`, `.filter()`.\n3. Use arrow functions wisely.\n4. Understand closures.\n5. Write clean, modular code.",
-      tags: "Tech - JavaScript",
+      tags: ["Tech", "JavaScript"],
       likes: 710,
       comments: 123,
       isBookmarked: false,
@@ -47,7 +47,7 @@ export const blogData = [
       author: "Mei Tanaka",
       content:
         "Kyoto is a perfect blend of tradition and nature. From the serene Arashiyama Bamboo Grove to the spiritual Fushimi Inari Shrine...\n\nHere’s how to explore it in 48 hours and where to find the best matcha desserts!",
-      tags: "Travel - Japan",
+      tags: ["Travel", "Japan"],
       likes: 329,
       comments: 123,
       isBookmarked: true,
@@ -61,7 +61,7 @@ export const blogData = [
       author: "Jordan Miles",
       content:
         "Building my first app taught me more than just coding.\n\nFrom planning and designing to debugging and deployment — here’s everything I learned along the way, and how you can start too!",
-      tags: "Coding - Mobile Development",
+      tags: ["Coding","Mobile Development"],
       likes: 612,
       comments: 123,
       isBookmarked: false,
@@ -75,7 +75,7 @@ export const blogData = [
       author: "Alice Kwon",
       content:
         "JavaScript isn’t just a language—it’s a gateway to building amazing web experiences.\n\nThis post outlines a 30-day roadmap to becoming confident in JS, with tips, exercises, and real-world applications.",
-      tags: "Coding - JavaScript",
+      tags: ["Coding", "JavaScript"],
       likes: 745,
       comments: 89,
       isBookmarked: true,
@@ -89,7 +89,7 @@ export const blogData = [
       author: "Nina Arora",
       content:
         "Minimalism is more than a design aesthetic—it's a way of life.\n\nLearn how embracing less can lead to more clarity, freedom, and peace of mind.",
-      tags: "Lifestyle - Minimalism",
+      tags: ["Lifestyle", "Minimalism"],
       likes: 431,
       comments: 54,
       isBookmarked: false,
@@ -103,7 +103,7 @@ export const blogData = [
       author: "Liam Novak",
       content:
         "The Swiss Alps in winter are a breathtaking spectacle.\n\nHere’s my full travelogue—from snowy trails to cozy chalets and unforgettable views.",
-      tags: "Travel - Adventure",
+      tags: ["Travel", "Adventure"],
       likes: 893,
       comments: 207,
       isBookmarked: true,
@@ -117,7 +117,7 @@ export const blogData = [
       author: "Sophie Tan",
       content:
         "In a world of distractions, mindfulness brings us back to the present.\n\nThis post explores simple techniques to incorporate mindfulness into your daily routine.",
-      tags: "Wellness - Mental Health",
+      tags: ["Wellness", "Mental Health"],
       likes: 502,
       comments: 67,
       isBookmarked: false,
@@ -131,7 +131,7 @@ export const blogData = [
       author: "Elena Morale",
       content:
         "React Native and Flutter are dominating cross-platform development.\n\nHere’s a breakdown of their pros, cons, performance metrics, and which one is right for your next app.",
-      tags: "Coding - Cross Platform",
+      tags: ["Coding", "Cross Platform"],
       likes: 768,
       comments: 134,
       isBookmarked: true,
@@ -145,7 +145,7 @@ export const blogData = [
       author: "Daniel Reed",
       content:
         "After hitting rock bottom with work-life imbalance, I made changes that brought me back to life.\n\nHere’s how I regained control and found sustainable productivity.",
-      tags: "Lifestyle - Wellness",
+      tags: ["Lifestyle", "Wellness"],
       likes: 649,
       comments: 102,
       isBookmarked: false,
@@ -159,7 +159,7 @@ export const blogData = [
       author: "Rachel Kim",
       content:
         "Going vegan doesn’t mean giving up flavor!\n\nHere are 10 beginner-friendly recipes that are delicious, nutritious, and easy to prepare.",
-      tags: "Food - Vegan",
+      tags: ["Food", "Vegan"],
       likes: 412,
       comments: 73,
       isBookmarked: true,
@@ -173,7 +173,7 @@ export const blogData = [
       author: "Elena Morale",
       content:
         "Good design is invisible, but its impact is undeniable.\n\nThese UX principles will help you create apps and websites that truly connect with users.",
-      tags: "Design - UX",
+      tags: ["Design", "UX"],
       likes: 589,
       comments: 88,
       isBookmarked: false,
@@ -187,7 +187,7 @@ export const blogData = [
       author: "Marcus Singh",
       content:
         "Investing can be intimidating—but it doesn’t have to be.\n\nHere’s a guide to understanding risk, building a portfolio, and starting your journey to financial freedom.",
-      tags: "Finance - Investing",
+      tags: ["Finance", "Investing"],
       likes: 477,
       comments: 65,
       isBookmarked: false,
@@ -201,7 +201,7 @@ export const blogData = [
       author: "Elena Moralies",
       content:
         "Artificial intelligence is no longer futuristic—it’s everywhere.\n\nFrom your smartphone to your fridge, here are 5 ways AI is subtly changing your life.",
-      tags: "Tech - AI",
+      tags: ["Tech", "AI"],
       likes: 832,
       comments: 150,
       isBookmarked: true,
