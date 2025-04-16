@@ -1,6 +1,6 @@
 import BlogCard from "../../components/BlogCard";
 import { FlatList, Pressable, Button } from "react-native";
-import {blogData} from "../../data/blogData";
+import {blogData} from "../../data/data";
 
 function Feed() {
     const blogElemet = blogData;
