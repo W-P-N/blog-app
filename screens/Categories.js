@@ -13,7 +13,7 @@ function Categories() {
             data={categoriesList}
             keyExtractor={(item) => item.id}
             renderItem={(data) => <CategoryTile catTitle={data.item.name} key={data.item.id}/>}
-            style={{flex: 1, flexWrap: 'wrap'}}
+            numColumns={2}
         />
     );
 };
