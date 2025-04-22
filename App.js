@@ -80,6 +80,19 @@ const CategoryScreens = () => {
         })}
       />
       </Stack.Navigator>
+  );
+};
+
+const BookmarksScreens = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name='Bookmarks' component={Bookmarks} />
+      <Stack.Screen name='Post' component={Post} options={({ route }) => ({
+          title: route.params.title,
+          headerRight: ({size, color}) => <Ionicons name='star-outline' style={{paddingHorizontal: 8, alignItems: 'center'}} size={28} color={color} />
+        })}
+      />
+    </Stack.Navigator>
   )
 }
  
@@ -105,7 +118,7 @@ export default function App() {
               title: 'Categories',
               headerTitleAlign: 'center'
             }}/>
-            <Drawer.Screen name='Bookmarks' component={Bookmarks} options={{
+            <Drawer.Screen name='Bookmarks' component={BookmarksScreens} options={{
               title: 'Bookmarks',
               headerTitleAlign: 'center'
             }}/>
