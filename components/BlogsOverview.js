@@ -2,7 +2,7 @@ import { StyleSheet, FlatList, Pressable, View } from "react-native";
 import BlogCard from "./BlogCard";
 import { useNavigation } from "@react-navigation/native";
 
-function BlogsOverview({blogData}) {
+function BlogsOverview({blogData, isOwner}) {
 
     const navigation = useNavigation();
 
@@ -22,13 +22,14 @@ function BlogsOverview({blogData}) {
                             imageUrl: blogItem.imageUrl,
                             trending: blogItem.trending,
                             hideTitle: true,
-                            content: blogItem.content
+                            content: blogItem.content,
+                            isOwner: isOwner
                         }
                     )
                 )
             }
             >
-                <BlogCard author={blog.item.author} title={blog.item.title} likes={blog.item.likes} imageUrl={blog.item.imageUrl} comments={blog.item.comments}/>
+                <BlogCard author={blog.item.author} title={blog.item.title} likes={blog.item.likes} imageUrl={blog.item.imageUrl} comments={blog.item.comments} isOwner={isOwner}/>
             </Pressable>
         );
     };

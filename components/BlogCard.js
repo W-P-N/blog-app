@@ -1,7 +1,7 @@
 import { View, Image, Text, StyleSheet } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 
-function BlogCard({imageUrl, title, author, likes, comments}) {
+function BlogCard({imageUrl, title, author, likes, comments, isOwner}) {
     return (
         <View style={styles.rootContainer}>
             <View style={styles.imageContainer}>
@@ -31,6 +31,9 @@ function BlogCard({imageUrl, title, author, likes, comments}) {
                         <Text>{comments}</Text>
                         
                         <Ionicons name="chatbubble" size={32} />
+                    </View>
+                    <View style={styles.editIconContainer}>
+                        <Ionicons name="pencil" size={32} />
                     </View>
                 </View>
             </View>
@@ -81,8 +84,9 @@ const styles = StyleSheet.create({
         gap: 4,
         justifyContent: 'center',
         alignItems: 'center'    
+    },
+    editIconContainer: {
+        justifyContent: 'center',
+        alignItems: 'center'
     }
-
-
-
 })

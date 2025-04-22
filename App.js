@@ -47,6 +47,20 @@ const TrendingPostsScreens = () => {
         })}
       />
     </Stack.Navigator>
+  );
+};
+
+const MyPostsScreens = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name='My Posts' component={MyPosts} />
+      <Stack.Screen name='Post' component={Post} 
+        options={({ route }) => ({
+          title: route.params.title,
+          headerRight: ({size, color}) => <Ionicons name='star-outline' style={{paddingHorizontal: 8, alignItems: 'center'}} size={28} color={color} />
+        })}
+      />
+    </Stack.Navigator>
   )
 }
 
@@ -68,7 +82,7 @@ const TabScreens = () => {
         tabBarIcon: ({color, size}) => <Ionicons name='trending-up' size={size} color={color} />,
         headerTitleAlign: 'center'
       }} />
-      <BottonTab.Screen name='MyPosts' component={MyPosts} options={{
+      <BottonTab.Screen name='MyPosts' component={MyPostsScreens} options={{
         title: 'My Posts',
         tabBarIcon: ({color, size}) => <Ionicons name='person' size={size} color={color} />,
         headerTitleAlign: 'center'
