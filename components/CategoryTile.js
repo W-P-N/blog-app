@@ -12,6 +12,7 @@ function CategoryTile({catTitle}) {
             navigation.navigate(
                 'CategoryBlogs',
                 {
+                    title: catTitle,
                     blogs: getBlogsInCategory
                 }
             )

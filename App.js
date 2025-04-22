@@ -69,7 +69,8 @@ const CategoryScreens = () => {
         <Stack.Screen name='Category' component={Categories} />
         <Stack.Screen name='CategoryBlogs' component={CategoryBlogs} 
           options={({route}) => ({
-            title: route.params.title
+            title: route.params.title,
+            headerTitleAlign: 'center'
           })}
         />
         <Stack.Screen name='Post' component={Post}
