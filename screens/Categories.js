@@ -1,18 +1,25 @@
-import { Text, FlatList } from "react-native";
+import { Text, FlatList, Pressable } from "react-native";
 import { blogData } from "../data/data";
 import CategoryTile from "../components/CategoryTile";
 
-function Categories() {
+function Categories({navigation}) {
     const categories = [...new Set(blogData.map((item) => item.tags).flat())];
     const categoriesList = categories.map((item, index) => ({
         id: index.toString(),
         name: item
-    }))
+    }));
+
+    function renderCategories(data) {
+        return (
+                <CategoryTile catTitle={data.item.name} key={data.item.id} />
+        )
+    };
+
     return (
         <FlatList 
             data={categoriesList}
             keyExtractor={(item) => item.id}
-            renderItem={(data) => <CategoryTile catTitle={data.item.name} key={data.item.id}/>}
+            renderItem={renderCategories}
             numColumns={2}
         />
     );

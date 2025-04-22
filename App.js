@@ -11,6 +11,7 @@ import Categories from './screens/Categories';
 import { Ionicons } from '@expo/vector-icons';
 import Post from './screens/Post';
 import Bookmarks from './screens/Bookmarks';
+import BlogListShell from './components/BlogListsShell';
 
 
 const Stack = createStackNavigator(); 
@@ -89,8 +90,6 @@ export default function App() {
               title: 'Bookmarks',
               headerTitleAlign: 'center'
             }}/>
-            
-
           </Drawer.Navigator>
         </NavigationContainer>
     </>

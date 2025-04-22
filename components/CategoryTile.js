@@ -1,23 +1,33 @@
 import { Text, View, StyleSheet, Platform, Pressable } from "react-native";
+import { blogData } from "../data/data";
+import { useNavigation } from "@react-navigation/native";
 
 
 function CategoryTile({catTitle}) {
+    const navigation = useNavigation();
+    const getBlogsInCategory = blogData.filter((blog) => blog.tags.includes(catTitle));
     return (
-        <View style={styles.container}>
             <Pressable
                 android_ripple={{color: '#ccc'}}
                 style={({pressed}) => [
                     styles.buttonStyle,
                     pressed ? styles.buttonPressed : null
                 ]}
+                onPress={() => (
+                    navigation.navigate(
+                        'Post',  // Where to navigate? Design navigation from category tiles
+
+                    )
+                )}
             >
-                <View style={[styles.innerContainer]}>
-                    <Text style={styles.title}>
-                        {catTitle}
-                    </Text>
+                <View style={styles.container}>
+                    <View style={[styles.innerContainer]}>
+                        <Text style={styles.title}>
+                            {catTitle}
+                        </Text>
+                    </View>
                 </View>
             </Pressable>
-        </View>
     );
 };
 
