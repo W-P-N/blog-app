@@ -2,9 +2,10 @@ import { StyleSheet, FlatList, Pressable, View } from "react-native";
 import BlogCard from "./BlogCard";
 import { useNavigation } from "@react-navigation/native";
 
-function BlogListShell({blogData, onPress}) {
+function BlogsOverview({blogData}) {
 
     const navigation = useNavigation();
+    console.log(blogData);
 
     const renderBlogCard = (blog) => {
         const blogItem = blog.item;
@@ -26,7 +27,8 @@ function BlogListShell({blogData, onPress}) {
                         }
                     )
                 )
-            }>
+            }
+            >
                 <BlogCard author={blog.item.author} title={blog.item.title} likes={blog.item.likes} imageUrl={blog.item.imageUrl} comments={blog.item.comments}/>
             </Pressable>
         );
@@ -42,7 +44,7 @@ function BlogListShell({blogData, onPress}) {
     );
 };
 
-export default BlogListShell;
+export default BlogsOverview;
 
 const styles = StyleSheet.create({
 

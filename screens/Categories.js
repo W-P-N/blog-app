@@ -9,9 +9,32 @@ function Categories({navigation}) {
         name: item
     }));
 
-    function renderCategories(data) {
+    function renderCategories(blogItem) {
+        function handleOnPressCategory({blogData = blogItem}) {
+            const blog = {
+                title: blogData.title,
+                author: blogData.author,
+                likes: blogData.likes,
+                comments: blogData.comments,
+                isBookmarked: blogData.isBookmarked,
+                publishDate: blogData.publishDate,
+                imageUrl: blogData.imageUrl,
+                trending: blogData.trending,
+                hideTitle: true,
+                content: blogData.content
+            };
+
+            return (
+                navigation.navigate(
+                    'CategoryBlogs',
+                    {
+                        blogs
+                    }
+                )
+            )
+        }
         return (
-                <CategoryTile catTitle={data.item.name} key={data.item.id} />
+                <CategoryTile catTitle={blogItem.item.name} key={blogItem.item.id} />
         )
     };
 

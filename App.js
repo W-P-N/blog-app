@@ -11,7 +11,7 @@ import Categories from './screens/Categories';
 import { Ionicons } from '@expo/vector-icons';
 import Post from './screens/Post';
 import Bookmarks from './screens/Bookmarks';
-import BlogListShell from './components/BlogListsShell';
+import CategoryBlogs from './screens/CategoryBlogs';
 
 
 const Stack = createStackNavigator(); 
@@ -22,7 +22,7 @@ const Drawer = createDrawerNavigator();
 const StackScreens = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name='FeedMain' component={Feed} options={{
+      <Stack.Screen name='Feed' component={Feed} options={{
         title: 'Blogs',
         headerTitleAlign: 'center'
       }} />
@@ -63,6 +63,24 @@ const TabScreens = () => {
   )
 }
 
+const CategoryScreens = () => {
+  return (
+      <Stack.Navigator>
+        <Stack.Screen name='Category' component={Categories} />
+        <Stack.Screen name='CategoryBlogs' component={CategoryBlogs} 
+          options={({route}) => ({
+            title: route.params.title
+          })}
+        />
+        <Stack.Screen name='Post' component={Post}
+        options={({ route }) => ({
+          title: route.params.title,
+          headerRight: ({size, color}) => <Ionicons name='star-outline' style={{paddingHorizontal: 8, alignItems: 'center'}} size={28} color={color} />
+        })}
+      />
+      </Stack.Navigator>
+  )
+}
  
 export default function App() {
   return (
@@ -82,7 +100,7 @@ export default function App() {
               headerTitleAlign: 'center',
             }}
             />
-            <Drawer.Screen name='Categories' component={Categories} options={{
+            <Drawer.Screen name='Categories' component={CategoryScreens} options={{
               title: 'Categories',
               headerTitleAlign: 'center'
             }}/>

@@ -11,7 +11,7 @@ function Bookmarks() {
         )
     }
     return (
-        <View>
+        <View style={styles.container}>
             <FlatList
                  data={bookmarkedData}
                  keyExtractor={(blogData) => blogData.id}
@@ -24,5 +24,9 @@ function Bookmarks() {
 export default Bookmarks;
 
 const styles = StyleSheet.create({
-
+    container: {
+        padding: 8,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
 })
