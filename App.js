@@ -36,6 +36,20 @@ const StackScreens = () => {
   );
 };
 
+const TrendingPostsScreens = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name='Trending' component={TrendingPosts} />
+      <Stack.Screen name='Post' component={Post} 
+        options={({ route }) => ({
+          title: route.params.title,
+          headerRight: ({size, color}) => <Ionicons name='star-outline' style={{paddingHorizontal: 8, alignItems: 'center'}} size={28} color={color} />
+        })}
+      />
+    </Stack.Navigator>
+  )
+}
+
 // Nesting tab component into side drawer component -> feed has bottom tabs
 const TabScreens = () => {
   return (
@@ -49,7 +63,7 @@ const TabScreens = () => {
         tabBarIcon: ({color, size}) => <Ionicons name='home' size={size} color={color} />,
         headerTitleAlign: 'center'
       }} />
-      <BottonTab.Screen name='TrendingPosts' component={TrendingPosts} options={{
+      <BottonTab.Screen name='TrendingPosts' component={TrendingPostsScreens} options={{
         title: 'Trending',
         tabBarIcon: ({color, size}) => <Ionicons name='trending-up' size={size} color={color} />,
         headerTitleAlign: 'center'
@@ -93,9 +107,9 @@ const BookmarksScreens = () => {
         })}
       />
     </Stack.Navigator>
-  )
-}
- 
+  );
+};
+
 export default function App() {
   return (
     <>

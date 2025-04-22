@@ -5,7 +5,6 @@ import { useNavigation } from "@react-navigation/native";
 function BlogsOverview({blogData}) {
 
     const navigation = useNavigation();
-    console.log(blogData);
 
     const renderBlogCard = (blog) => {
         const blogItem = blog.item;
