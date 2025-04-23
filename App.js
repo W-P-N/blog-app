@@ -6,12 +6,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Feed from './screens/feedscreens/Feed';
 import TrendingPosts from './screens/feedscreens/TrendingPosts';
-import MyPosts from './screens/feedscreens/MyPosts';
-import Categories from './screens/Categories';
+import MyPosts from './screens/feedscreens/mypostsscreens/MyPosts';
+import Categories from './screens/categoryscreens/Categories';
 import { Ionicons } from '@expo/vector-icons';
 import Post from './screens/Post';
 import Bookmarks from './screens/Bookmarks';
-import CategoryBlogs from './screens/CategoryBlogs';
+import CategoryBlogs from './screens/categoryscreens/CategoryBlogs';
+// import EditBlogForm from './components/EditBlogForm';
+import EditBlog from './screens/feedscreens/mypostsscreens/EditBlog';
 
 
 const Stack = createStackNavigator(); 
@@ -54,9 +56,11 @@ const MyPostsScreens = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name='My Posts' component={MyPosts} />
-      <Stack.Screen name='Post' component={Post} 
+      <Stack.Screen name='EditPost' component={EditBlog} 
         options={({ route }) => ({
           title: route.params.title,
+          headerShown: false,
+          presentation: 'modal',
           headerRight: ({size, color}) => <Ionicons name='star-outline' style={{paddingHorizontal: 8, alignItems: 'center'}} size={28} color={color} />
         })}
       />
@@ -69,10 +73,10 @@ const TabScreens = () => {
   return (
     <BottonTab.Navigator 
       screenOptions={{
-        headerShown: false
+        headerShown: false,
       }}
     >
-      <BottonTab.Screen name='Feed' component={StackScreens} options={{
+      <BottonTab.Screen name='tabFeed' component={StackScreens} options={{
         title: 'Home',
         tabBarIcon: ({color, size}) => <Ionicons name='home' size={size} color={color} />,
         headerTitleAlign: 'center'
@@ -137,7 +141,7 @@ export default function App() {
               
             }}
           >
-            <Drawer.Screen name='FeedTab' component={TabScreens} options={{
+            <Drawer.Screen name='rootFeed' component={TabScreens} options={{
               title: 'Feed',
               headerTitleAlign: 'center',
             }}
@@ -146,7 +150,7 @@ export default function App() {
               title: 'Categories',
               headerTitleAlign: 'center'
             }}/>
-            <Drawer.Screen name='Bookmarks' component={BookmarksScreens} options={{
+            <Drawer.Screen name='rootBookmarks' component={BookmarksScreens} options={{
               title: 'Bookmarks',
               headerTitleAlign: 'center'
             }}/>

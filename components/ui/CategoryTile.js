@@ -1,7 +1,6 @@
 import { Text, View, StyleSheet, Platform, Pressable } from "react-native";
-import { blogData } from "../data/data";
+import { blogData } from "../../data/data";
 import { useNavigation } from "@react-navigation/native";
-import BlogListShell from "./BlogsOverview";
 
 
 function CategoryTile({catTitle}) {

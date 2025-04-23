@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import { blogData } from "../data/data";
-import BlogsOverview from "../components/BlogsOverview";
+import BlogsOverview from "../components/ui/BlogsOverview";
 
 function Bookmarks() {
     const bookmarkedData = blogData.filter((blog) => blog.isBookmarked === true);

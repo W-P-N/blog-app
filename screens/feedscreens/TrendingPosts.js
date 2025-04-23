@@ -1,5 +1,5 @@
 import { Text } from "react-native";
-import BlogsOverview from "../../components/BlogsOverview";
+import BlogsOverview from "../../components/ui/BlogsOverview";
 import { blogData } from "../../data/data";
 
 function TrendingPosts() {

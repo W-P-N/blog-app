@@ -32,9 +32,13 @@ function BlogCard({imageUrl, title, author, likes, comments, isOwner}) {
                         
                         <Ionicons name="chatbubble" size={32} />
                     </View>
-                    <View style={styles.editIconContainer}>
-                        <Ionicons name="pencil" size={32} />
-                    </View>
+                    {isOwner ? 
+                        <View style={styles.editIconContainer}>
+                            <Ionicons name="pencil" size={32} />
+                        </View>
+                        :
+                        <></>
+                    }
                 </View>
             </View>
         </View>
@@ -77,7 +81,8 @@ const styles = StyleSheet.create({
     likeCommentContainer: {
         flexDirection: 'row',
         marginVertical: 12,
-        gap: 24
+        gap: 24,
+        justifyContent: 'space-evenly'
     },
     likesText: {
         flexDirection: 'row',
@@ -86,7 +91,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'    
     },
     editIconContainer: {
-        justifyContent: 'center',
-        alignItems: 'center'
+        marginVertical: 12,
+        gap: 24
     }
 })

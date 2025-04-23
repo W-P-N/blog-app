@@ -10,6 +10,12 @@ function BlogsOverview({blogData, isOwner}) {
         const blogItem = blog.item;
         return (
             <Pressable onPress={() =>  (
+                isOwner ? (
+                    navigation.navigate(
+                        'EditPost',
+                        {blog: blogItem}
+                    )
+                ) : (
                     navigation.navigate(
                         'Post',
                         {
@@ -26,6 +32,7 @@ function BlogsOverview({blogData, isOwner}) {
                             isOwner: isOwner
                         }
                     )
+                )
                 )
             }
             >

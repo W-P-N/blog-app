@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import BlogsOverview from "../components/BlogsOverview";
+import BlogsOverview from "../../components/ui/BlogsOverview";
 
 function CategoryBlogs({route}) {
     // title: blogData.title,
