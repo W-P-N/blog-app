@@ -14,6 +14,7 @@ import Bookmarks from './screens/Bookmarks';
 import CategoryBlogs from './screens/categoryscreens/CategoryBlogs';
 // import EditBlogForm from './components/EditBlogForm';
 import EditBlog from './screens/feedscreens/mypostsscreens/EditBlog';
+import UserProfile from './screens/userscreens/UserProfile';
 
 
 const Stack = createStackNavigator(); 
@@ -26,6 +27,10 @@ const StackScreens = () => {
     <Stack.Navigator>
       <Stack.Screen name='Feed' component={Feed} options={{
         title: 'Blogs',
+        headerTitleAlign: 'center'
+      }} />
+      <Stack.Screen name='User' component={UserProfile} options={{
+        title: 'Profile',
         headerTitleAlign: 'center'
       }} />
       <Stack.Screen name='Post' component={Post}
@@ -135,17 +140,28 @@ export default function App() {
         <NavigationContainer>
           {/* Home screen as tabs */}
           <Drawer.Navigator
-            screenOptions={{
+            screenOptions={(navigation) => ({
               headerRight: ({size, color}) => 
-                  <Ionicons name='person' style={{alignItems: 'center', marginHorizontal: 12}} size={32} color={color} />
-              
-            }}
+                  <Ionicons name='person' style={{alignItems: 'center', marginHorizontal: 12}} size={32} color={color} onPress={() => navigation.navigation.navigate(
+                    'rootFeed', 
+                    {
+                      screen: 'tabFeed',
+                      params: {
+                        screen: 'User'
+                      }
+                    }
+                  )}/>
+            })}
           >
             <Drawer.Screen name='rootFeed' component={TabScreens} options={{
               title: 'Feed',
               headerTitleAlign: 'center',
             }}
             />
+            {/* <Drawer.Screen name='User' component={UserProfile} options={{
+              title: 'Profile',
+              headerTitleAlign: 'center'
+            }} /> */}
             <Drawer.Screen name='Categories' component={CategoryScreens} options={{
               title: 'Categories',
               headerTitleAlign: 'center'
