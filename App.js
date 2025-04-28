@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { getFocusedRouteNameFromRoute, NavigationContainer } from '@react-navigation/native';
+import { CommonActions, getFocusedRouteNameFromRoute, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -15,7 +15,7 @@ import CategoryBlogs from './screens/categoryscreens/CategoryBlogs';
 // import EditBlogForm from './components/EditBlogForm';
 import EditBlog from './screens/feedscreens/mypostsscreens/EditBlog';
 import UserProfile from './screens/userscreens/UserProfile';
-import { useEffect } from 'react';
+import EditProfile from './screens/userscreens/EditProfile';
 
 
 const Stack = createStackNavigator(); 
@@ -79,8 +79,17 @@ const MyPostsScreens = () => {
         })}
       />
     </Stack.Navigator>
-  )
-}
+  );
+};
+
+const UserProfileScreens = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name='UserProfile' component={UserProfile} />
+      <Stack.Screen name='EditProfile' component={EditProfile} />
+    </Stack.Navigator>
+  );
+};
 
 // Nesting tab component into side drawer component -> feed has bottom tabs
 const TabScreens = () => {
@@ -93,26 +102,26 @@ const TabScreens = () => {
       <BottomTab.Screen name='tabFeed' component={StackScreens} options={{
         title: 'Home',
         tabBarIcon: ({color, size}) => <Ionicons name='home' size={size} color={color} />,
-        headerTitleAlign: 'center',
+        headerTitleAlign: 'center'
       }} />
-      <BottomTab.Screen name='TrendingPosts' component={TrendingPostsScreens} options={(navigation) => ({
+      <BottomTab.Screen name='TrendingPosts' component={TrendingPostsScreens} options={{
         title: 'Trending Posts',
         tabBarIcon: ({color, size}) => <Ionicons name='trending-up' size={size} color={color} />,
         headerTitleAlign: 'center'
-      })} />
+      }} />
       <BottomTab.Screen name='MyPosts' component={MyPostsScreens} options={{
         title: 'My Posts',
         tabBarIcon: ({color, size}) => <Ionicons name='file-tray-full-outline' size={size} color={color} />,
         headerTitleAlign: 'center'
       }}/>
-      <BottomTab.Screen name='User' component={UserProfile} options={{
+      <BottomTab.Screen name='User' component={UserProfileScreens} options={{
         title: 'Profile',
         headerTitleAlign: 'center',
         tabBarIcon: ({color, size}) => <Ionicons name='person' size={size} color={color} />,
       }} />
     </BottomTab.Navigator>
-  )
-}
+  );
+};
 
 const CategoryScreens = () => {
   return (
@@ -176,12 +185,7 @@ export default function App() {
           <Drawer.Navigator
             screenOptions={(navigation) => ({
               headerRight: ({size, color}) => 
-                  <Ionicons name='person' style={{alignItems: 'center', marginHorizontal: 12}} size={32} color={color} onPress={() => navigation.navigation.navigate(
-                    'Feed',
-                    {
-                      screen: 'User'
-                    }
-                  )}/>,
+                  <Ionicons name='person' style={{alignItems: 'center', marginHorizontal: 12}} size={32} color={color} onPress={() => {}}/>,
             })}
           >
             <Drawer.Screen name='Feed' component={TabScreens} options={(route) => ({
@@ -201,4 +205,4 @@ export default function App() {
         </NavigationContainer>
     </>
   );
-}
+};

@@ -215,7 +215,10 @@ export const blogData = [
   export const userData = {
       name: "Elena Morale",
       userId: "user-394afc71-937f-4d45-b2c4-5d1c02d9e871",
-      blogsCreated: ["7c9796cd-18d3-4ae5-8964-7a5e8a2e92f6", "0e1b0db2-55ea-4566-9841-221a4219e99e", "22c7342d-8757-4b62-a12a-8e1a35db66c6" ]
+      blogsCreated: ["7c9796cd-18d3-4ae5-8964-7a5e8a2e92f6", "0e1b0db2-55ea-4566-9841-221a4219e99e", "22c7342d-8757-4b62-a12a-8e1a35db66c6" ],
+      ttlNumLikes: 12000,
+      ttlNumComents: 3000,
+      ttlPosts: 34
     
   }
 
