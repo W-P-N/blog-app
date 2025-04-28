@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { getFocusedRouteNameFromRoute, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -15,6 +15,7 @@ import CategoryBlogs from './screens/categoryscreens/CategoryBlogs';
 // import EditBlogForm from './components/EditBlogForm';
 import EditBlog from './screens/feedscreens/mypostsscreens/EditBlog';
 import UserProfile from './screens/userscreens/UserProfile';
+import { useEffect } from 'react';
 
 
 const Stack = createStackNavigator(); 
@@ -24,13 +25,13 @@ const Drawer = createDrawerNavigator();
 // Nesting Stack componnent into tab -> post will stack on the feed:
 const StackScreens = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name='Feed' component={Feed} options={{
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <Stack.Screen name='stackFeed' component={Feed} options={{
         title: 'Blogs',
-        headerTitleAlign: 'center'
-      }} />
-      <Stack.Screen name='User' component={UserProfile} options={{
-        title: 'Profile',
         headerTitleAlign: 'center'
       }} />
       <Stack.Screen name='Post' component={Post}
@@ -45,7 +46,11 @@ const StackScreens = () => {
 
 const TrendingPostsScreens = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <Stack.Screen name='Trending' component={TrendingPosts} />
       <Stack.Screen name='Post' component={Post} 
         options={({ route }) => ({
@@ -59,7 +64,11 @@ const TrendingPostsScreens = () => {
 
 const MyPostsScreens = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <Stack.Screen name='My Posts' component={MyPosts} />
       <Stack.Screen name='EditPost' component={EditBlog} 
         options={({ route }) => ({
@@ -84,13 +93,13 @@ const TabScreens = () => {
       <BottonTab.Screen name='tabFeed' component={StackScreens} options={{
         title: 'Home',
         tabBarIcon: ({color, size}) => <Ionicons name='home' size={size} color={color} />,
-        headerTitleAlign: 'center'
+        headerTitleAlign: 'center',
       }} />
-      <BottonTab.Screen name='TrendingPosts' component={TrendingPostsScreens} options={{
-        title: 'Trending',
+      <BottonTab.Screen name='TrendingPosts' component={TrendingPostsScreens} options={(navigation) => ({
+        title: 'Trending Posts',
         tabBarIcon: ({color, size}) => <Ionicons name='trending-up' size={size} color={color} />,
         headerTitleAlign: 'center'
-      }} />
+      })} />
       <BottonTab.Screen name='MyPosts' component={MyPostsScreens} options={{
         title: 'My Posts',
         tabBarIcon: ({color, size}) => <Ionicons name='person' size={size} color={color} />,
@@ -134,6 +143,23 @@ const BookmarksScreens = () => {
 };
 
 export default function App() {
+
+  function getHeaderTitleInTabs(route) {
+    const routeName = getFocusedRouteNameFromRoute(route) ?? 'tabFeed';
+
+    switch(routeName) {
+      case 'tabFeed': {
+        return 'Feed';
+      };
+      case 'TrendingPosts': {
+        return 'Trending Posts';
+      };
+      case 'MyPosts': {
+        return 'My Posts';
+      };
+    };
+  };
+
   return (
     <>
       <StatusBar style="auto" />
@@ -143,25 +169,21 @@ export default function App() {
             screenOptions={(navigation) => ({
               headerRight: ({size, color}) => 
                   <Ionicons name='person' style={{alignItems: 'center', marginHorizontal: 12}} size={32} color={color} onPress={() => navigation.navigation.navigate(
-                    'rootFeed', 
-                    {
-                      screen: 'tabFeed',
-                      params: {
-                        screen: 'User'
-                      }
-                    }
+                    'User'
                   )}/>
             })}
           >
-            <Drawer.Screen name='rootFeed' component={TabScreens} options={{
-              title: 'Feed',
+            <Drawer.Screen name='Feed' component={TabScreens} options={(route) => ({
+              headerTitle: getHeaderTitleInTabs(route.route),
               headerTitleAlign: 'center',
-            }}
+            })}
             />
-            {/* <Drawer.Screen name='User' component={UserProfile} options={{
+            <Drawer.Screen name='User' component={UserProfile} options={{
               title: 'Profile',
-              headerTitleAlign: 'center'
-            }} /> */}
+              headerTitleAlign: 'center',
+              drawerItemStyle: {display: 'none'},
+              // Use modal like screen flow to view the profile.
+            }} />
             <Drawer.Screen name='Categories' component={CategoryScreens} options={{
               title: 'Categories',
               headerTitleAlign: 'center'
