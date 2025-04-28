@@ -1,4 +1,4 @@
-import { Text, FlatList, Pressable } from "react-native";
+import { Text, FlatList, Pressable, View, StyleSheet } from "react-native";
 import { blogData } from "../../data/data";
 import CategoryTile from "../../components/ui/CategoryTile";
 
@@ -16,13 +16,14 @@ function Categories({navigation}) {
     };
 
     return (
-        <FlatList 
-            data={categoriesList}
-            keyExtractor={(item) => item.id}
-            renderItem={renderCategories}
-            numColumns={2}
-        />
+            <FlatList 
+                data={categoriesList}
+                keyExtractor={(item) => item.id}
+                renderItem={renderCategories}
+                numColumns={2}
+            />
     );
 };
 
 export default Categories;
+

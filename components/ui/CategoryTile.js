@@ -57,7 +57,9 @@ const styles = StyleSheet.create({
         overflow: Platform.OS === 'android' ? 'hidden' : ''
     },
     buttonStyle: {
-        flex: 1
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     buttonPressed: {
         opacity: 0.5
