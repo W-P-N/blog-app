@@ -19,7 +19,7 @@ import { useEffect } from 'react';
 
 
 const Stack = createStackNavigator(); 
-const BottonTab = createBottomTabNavigator();
+const BottomTab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 // Nesting Stack componnent into tab -> post will stack on the feed:
@@ -85,27 +85,32 @@ const MyPostsScreens = () => {
 // Nesting tab component into side drawer component -> feed has bottom tabs
 const TabScreens = () => {
   return (
-    <BottonTab.Navigator 
+    <BottomTab.Navigator 
       screenOptions={{
         headerShown: false,
       }}
     >
-      <BottonTab.Screen name='tabFeed' component={StackScreens} options={{
+      <BottomTab.Screen name='tabFeed' component={StackScreens} options={{
         title: 'Home',
         tabBarIcon: ({color, size}) => <Ionicons name='home' size={size} color={color} />,
         headerTitleAlign: 'center',
       }} />
-      <BottonTab.Screen name='TrendingPosts' component={TrendingPostsScreens} options={(navigation) => ({
+      <BottomTab.Screen name='TrendingPosts' component={TrendingPostsScreens} options={(navigation) => ({
         title: 'Trending Posts',
         tabBarIcon: ({color, size}) => <Ionicons name='trending-up' size={size} color={color} />,
         headerTitleAlign: 'center'
       })} />
-      <BottonTab.Screen name='MyPosts' component={MyPostsScreens} options={{
+      <BottomTab.Screen name='MyPosts' component={MyPostsScreens} options={{
         title: 'My Posts',
-        tabBarIcon: ({color, size}) => <Ionicons name='person' size={size} color={color} />,
+        tabBarIcon: ({color, size}) => <Ionicons name='file-tray-full-outline' size={size} color={color} />,
         headerTitleAlign: 'center'
       }}/>
-    </BottonTab.Navigator>
+      <BottomTab.Screen name='User' component={UserProfile} options={{
+        title: 'Profile',
+        headerTitleAlign: 'center',
+        tabBarIcon: ({color, size}) => <Ionicons name='person' size={size} color={color} />,
+      }} />
+    </BottomTab.Navigator>
   )
 }
 
@@ -157,6 +162,9 @@ export default function App() {
       case 'MyPosts': {
         return 'My Posts';
       };
+      case 'User': {
+        return 'Account';
+      };
     };
   };
 
@@ -169,8 +177,11 @@ export default function App() {
             screenOptions={(navigation) => ({
               headerRight: ({size, color}) => 
                   <Ionicons name='person' style={{alignItems: 'center', marginHorizontal: 12}} size={32} color={color} onPress={() => navigation.navigation.navigate(
-                    'User'
-                  )}/>
+                    'Feed',
+                    {
+                      screen: 'User'
+                    }
+                  )}/>,
             })}
           >
             <Drawer.Screen name='Feed' component={TabScreens} options={(route) => ({
@@ -178,12 +189,6 @@ export default function App() {
               headerTitleAlign: 'center',
             })}
             />
-            <Drawer.Screen name='User' component={UserProfile} options={{
-              title: 'Profile',
-              headerTitleAlign: 'center',
-              drawerItemStyle: {display: 'none'},
-              // Use modal like screen flow to view the profile.
-            }} />
             <Drawer.Screen name='Categories' component={CategoryScreens} options={{
               title: 'Categories',
               headerTitleAlign: 'center'
@@ -197,12 +202,3 @@ export default function App() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
