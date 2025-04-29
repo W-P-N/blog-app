@@ -69,7 +69,7 @@ const MyPostsScreens = () => {
         headerShown: false
       }}
     >
-      <Stack.Screen name='My Posts' component={MyPosts} />
+      <Stack.Screen name='MyPosts' component={MyPosts} />
       <Stack.Screen name='EditPost' component={EditBlog} 
         options={({ route }) => ({
           title: route.params.title,
@@ -84,7 +84,11 @@ const MyPostsScreens = () => {
 
 const UserProfileScreens = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <Stack.Screen name='UserProfile' component={UserProfile} />
       <Stack.Screen name='EditProfile' component={EditProfile} />
     </Stack.Navigator>
@@ -114,7 +118,7 @@ const TabScreens = () => {
         tabBarIcon: ({color, size}) => <Ionicons name='file-tray-full-outline' size={size} color={color} />,
         headerTitleAlign: 'center'
       }}/>
-      <BottomTab.Screen name='User' component={UserProfileScreens} options={{
+      <BottomTab.Screen name='UserProfile' component={UserProfileScreens} options={{
         title: 'Profile',
         headerTitleAlign: 'center',
         tabBarIcon: ({color, size}) => <Ionicons name='person' size={size} color={color} />,
@@ -171,7 +175,7 @@ export default function App() {
       case 'MyPosts': {
         return 'My Posts';
       };
-      case 'User': {
+      case 'UserProfile': {
         return 'Account';
       };
     };

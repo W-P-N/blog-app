@@ -1,0 +1,1 @@
+* Do not directly call the function in ``onPress`` prop of the element. Use arrow function or create external function and point to it.
