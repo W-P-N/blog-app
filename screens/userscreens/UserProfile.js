@@ -26,7 +26,7 @@ function UserProfile({navigation}) {
             </View>
             <View style={styles.optionsContainer}>
                 <Pressable style={({pressed}) => pressed ? [styles.optionContainer, {opacity: 0.70}]: styles.optionContainer}
-                    onPress={() => navigation.navigate('EditProfile')}
+                    onPress={() => navigation.navigate('EditProfileHead')}
                 >
                     <Text style={styles.option}>Edit Profile</Text>
                     <Ionicons name="chevron-forward-outline" size={32}/>

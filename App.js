@@ -15,7 +15,11 @@ import CategoryBlogs from './screens/categoryscreens/CategoryBlogs';
 // import EditBlogForm from './components/EditBlogForm';
 import EditBlog from './screens/feedscreens/mypostsscreens/EditBlog';
 import UserProfile from './screens/userscreens/UserProfile';
-import EditProfile from './screens/userscreens/EditProfile';
+import EditProfile from './screens/userscreens/editProfile/EditProfile';
+import EditProfileImage from './screens/userscreens/editProfile/editProfileImage/EditProfileImage';
+
+// Contexts:
+import UserContextProvider from './context/User/user-data-context';
 
 
 const Stack = createStackNavigator(); 
@@ -82,6 +86,19 @@ const MyPostsScreens = () => {
   );
 };
 
+const EditProfileScreens = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <Stack.Screen name='EditProfile' component={EditProfile} />
+      <Stack.Screen name='EditProfileImage' component={EditProfileImage} />
+    </Stack.Navigator>
+  )
+}
+
 const UserProfileScreens = () => {
   return (
     <Stack.Navigator
@@ -90,7 +107,7 @@ const UserProfileScreens = () => {
       }}
     >
       <Stack.Screen name='UserProfile' component={UserProfile} />
-      <Stack.Screen name='EditProfile' component={EditProfile} />
+      <Stack.Screen name='EditProfileHead' component={EditProfileScreens} />
     </Stack.Navigator>
   );
 };
@@ -113,12 +130,12 @@ const TabScreens = () => {
         tabBarIcon: ({color, size}) => <Ionicons name='trending-up' size={size} color={color} />,
         headerTitleAlign: 'center'
       }} />
-      <BottomTab.Screen name='MyPosts' component={MyPostsScreens} options={{
+      <BottomTab.Screen name='MyPostsHead' component={MyPostsScreens} options={{
         title: 'My Posts',
         tabBarIcon: ({color, size}) => <Ionicons name='file-tray-full-outline' size={size} color={color} />,
         headerTitleAlign: 'center'
       }}/>
-      <BottomTab.Screen name='UserProfile' component={UserProfileScreens} options={{
+      <BottomTab.Screen name='UserProfileHead' component={UserProfileScreens} options={{
         title: 'Profile',
         headerTitleAlign: 'center',
         tabBarIcon: ({color, size}) => <Ionicons name='person' size={size} color={color} />,
@@ -184,6 +201,7 @@ export default function App() {
   return (
     <>
       <StatusBar style="auto" />
+      <UserContextProvider>
         <NavigationContainer>
           {/* Home screen as tabs */}
           <Drawer.Navigator
@@ -207,6 +225,7 @@ export default function App() {
             }}/>
           </Drawer.Navigator>
         </NavigationContainer>
+      </UserContextProvider>
     </>
   );
 };

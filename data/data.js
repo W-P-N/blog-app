@@ -218,7 +218,8 @@ export const blogData = [
       blogsCreated: ["7c9796cd-18d3-4ae5-8964-7a5e8a2e92f6", "0e1b0db2-55ea-4566-9841-221a4219e99e", "22c7342d-8757-4b62-a12a-8e1a35db66c6" ],
       ttlNumLikes: 12000,
       ttlNumComents: 3000,
-      ttlPosts: 34
+      ttlPosts: 34,
+      profileImageUri: 'https://cdn-icons-png.freepik.com/512/2465/2465301.png'
     
   }
 
