@@ -15,7 +15,7 @@ import CategoryBlogs from './screens/categoryscreens/CategoryBlogs';
 // import EditBlogForm from './components/EditBlogForm';
 import EditBlog from './screens/feedscreens/mypostsscreens/EditBlog';
 import UserProfile from './screens/userscreens/UserProfile';
-import EditProfile from './screens/userscreens/editProfile/EditProfile';
+import EditProfileForm from './screens/userscreens/editProfile/EditProfileForm';
 import EditProfileImage from './screens/userscreens/editProfile/editProfileImage/EditProfileImage';
 
 // Contexts:
@@ -89,12 +89,25 @@ const MyPostsScreens = () => {
 const EditProfileScreens = () => {
   return (
     <Stack.Navigator
-      screenOptions={{
-        headerShown: false
-      }}
+      // screenOptions={{
+      //   headerShown: false
+      // }}
     >
-      <Stack.Screen name='EditProfile' component={EditProfile} />
-      <Stack.Screen name='EditProfileImage' component={EditProfileImage} />
+      <Stack.Screen name='EditProfileForm' component={EditProfileForm} options={{
+        presentation: 'modal',
+        headerRight: () => (
+          <Pressable onPress={() => console.log("Saved")}>
+            <Ionicons name='checkmark-outline' style={{paddingHorizontal: 16}} size={32} />
+          </Pressable>
+        )
+      }}/>
+      <Stack.Screen name='EditProfileImage' component={EditProfileImage} options={{
+        headerRight: () => (
+          <Pressable onPress={() => console.log("Saved")}>
+            <Ionicons name='checkmark-outline' style={{paddingHorizontal: 16}} size={32} />
+          </Pressable>
+        )
+      }}/>
     </Stack.Navigator>
   )
 }

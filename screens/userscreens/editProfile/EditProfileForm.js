@@ -2,20 +2,15 @@ import { ImageBackground, Pressable, ScrollView, StyleSheet, Text, View } from "
 import { TextInput } from "react-native-gesture-handler";
 import { Ionicons } from '@expo/vector-icons';
 import { useContext, useState } from "react";
-import {launchCameraAsync} from 'expo-image-picker';
 import { userData } from "../../../data/data";
-import { UserContext } from "../../../context/User/user-data-context";
 
 function EditProfile({navigation}) {  // Get user data as input and put the data in the fields
-
-    const userCtx = useContext(UserContext);
-    const [imageUri, setImageUri] = useState(userCtx.userProfileImageUri);
 
     const goEditProfileImage = () => {
         navigation.navigate(
             'EditProfileImage',
             {
-                imageUri: imageUri
+                imageUri: userData.profileImageUri
             }
         )
     };
@@ -26,7 +21,7 @@ function EditProfile({navigation}) {  // Get user data as input and put the data
                 <Pressable style={styles.profilephotoContainer} onPress={goEditProfileImage}>
                     <ImageBackground
                         source={{
-                            uri: imageUri
+                            uri: userData.profileImageUri
                         }}
                         style={styles.imageBackground}
                     >

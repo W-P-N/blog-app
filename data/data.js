@@ -219,8 +219,10 @@ export const blogData = [
       ttlNumLikes: 12000,
       ttlNumComents: 3000,
       ttlPosts: 34,
-      profileImageUri: 'https://cdn-icons-png.freepik.com/512/2465/2465301.png'
-    
+      profileImageUri: 'https://cdn-icons-png.freepik.com/512/2465/2465301.png',
+      gender: 'Female',
+      phoneNumber: 180370218,
+      emailId: 'abc@mail.com'
   }
 
   

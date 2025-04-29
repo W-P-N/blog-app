@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { Button, Image, StyleSheet, View } from "react-native";
-import noUserImage from './../../../../assets/images/no-user-image.png';
+import { userData } from "../../../../data/data";
 
-function EditProfileImage({route, navigation}) {
-
-    const [profileImage, setProfileImage] = useState(route.params.imageUri);
+function EditProfileImage({navigation}) {
 
     function handleRemove() {
-        setProfileImage(noUserImage);
         navigation.goBack();
     }
     function handleTakePhoto() {}
@@ -16,7 +13,7 @@ function EditProfileImage({route, navigation}) {
     return (
         <View style={styles.rootContainer}>
             <Image source={{
-                uri: profileImage
+                uri: userData.profileImageUri
             }}
                 height={200}
                 width={200} 

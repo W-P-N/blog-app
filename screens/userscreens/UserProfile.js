@@ -2,12 +2,12 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { userData } from "../../data/data";
 
-function UserProfile({navigation}) {
+function UserProfile({navigation, route}) {
     // Change the logic of adding 'k' to the number above thousands.
     return (
         <View style={styles.outerContainer}>
             <Image style={styles.image} source={{
-                uri: 'https://cdn-icons-png.freepik.com/512/2465/2465301.png'
+                uri: userData.profileImageUri
             }}/>
             <Text style={styles.nameTitle}>Name</Text>
             <View style={styles.detailsContainer}>
