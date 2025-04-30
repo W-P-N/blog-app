@@ -1,6 +1,7 @@
-import { Text, TextInput, View } from "react-native";
+import { Pressable, Text, TextInput, View } from "react-native";
 
-function Login({title, password, inter}) {
+function Login({navigation}) {
+
     return (
         <View>
             <Text>
@@ -12,6 +13,11 @@ function Login({title, password, inter}) {
                 <Text>Password</Text>
                 <TextInput />
             </View>
+            <Pressable onPress={() => {navigation.navigate('signup')}}>
+                <Text>
+                    Signup
+                </Text>
+            </Pressable>
         </View>
     );
 };

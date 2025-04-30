@@ -20,6 +20,8 @@ import EditProfileImage from './screens/userscreens/editProfile/editProfileImage
 
 // Contexts:
 import UserContextProvider from './context/User/user-data-context';
+import Login from './screens/authscreens/Login';
+import Signup from './screens/authscreens/Signup';
 
 
 const Stack = createStackNavigator(); 
@@ -190,6 +192,19 @@ const BookmarksScreens = () => {
   );
 };
 
+const AuthStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name='login' component={Login} />
+      <Stack.Screen name='signup' component={Signup} options={{
+        presentation: 'modal',
+        headerTitle: 'SIGNUP',
+        headerTitleAlign: 'center',
+      }}/>
+    </Stack.Navigator>
+  )
+}
+
 export default function App() {
 
   function getHeaderTitleInTabs(route) {
@@ -216,8 +231,9 @@ export default function App() {
       <StatusBar style="auto" />
       <UserContextProvider>
         <NavigationContainer>
+          <AuthStack />
           {/* Home screen as tabs */}
-          <Drawer.Navigator
+          {/* <Drawer.Navigator
             screenOptions={(navigation) => ({
               headerRight: ({size, color}) => 
                   <Ionicons name='person' style={{alignItems: 'center', marginHorizontal: 12}} size={32} color={color} onPress={() => {}}/>,
@@ -236,7 +252,7 @@ export default function App() {
               title: 'Bookmarks',
               headerTitleAlign: 'center'
             }}/>
-          </Drawer.Navigator>
+          </Drawer.Navigator> */}
         </NavigationContainer>
       </UserContextProvider>
     </>

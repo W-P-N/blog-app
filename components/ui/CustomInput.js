@@ -1,9 +1,9 @@
 import { TextInput, StyleSheet } from "react-native";
 
-function CustomInput({text, onChangeText, customStyle}) {
+function CustomInput({text, onChangeText, customStyle, options}) {
     return (
         <>
-        <TextInput style={[styles.input, customStyle]} value={text} onChangeText={onChangeText}/>
+        <TextInput style={[styles.input, customStyle]} value={text} onChangeText={onChangeText} {...options}/>
         </>
     );
 };

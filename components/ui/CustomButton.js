@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text } from "react-native";
 
 function CustomButton({buttonTitle, customStyle, onPress}) {
     return (
-        <Pressable onPress={onPress} style={[styles.buttonStyle, customStyle]} android_ripple={({pressed}) => (pressed ? '#ccc' : '')}>
+        <Pressable onPress={onPress} style={({pressed}) => pressed ? [styles.buttonStyle, customStyle, styles.pressed] : [styles.buttonStyle, customStyle]}>
             <Text>
                 {buttonTitle}
             </Text>
@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: 200
+    },
+    pressed: {
+      opacity: 0.75  
     },
     buttonText: {
         fontSize: 16
